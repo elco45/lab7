@@ -3,8 +3,7 @@
 #include <string>
 using std::string;
 
-class Persona
-{
+class Persona{
 	string name, user, password, id, birth;
 	int age;
 public:
