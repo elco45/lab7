@@ -6,30 +6,30 @@
 using std::string;
 using std::stringstream;
 
-Forense(string fechai, string horario):fechai(fechai), horario(horario) {
+Forense::Forense(string fechai, string horario):fechai(fechai), horario(horario) {
 
 }
-Forense(string name, string user, string password, int age, string id, string birth, string fechai, string horario)
+Forense::Forense(string name, string user, string password, int age, string id, string birth, string fechai, string horario)
 	:Persona(name, user, password, age, id, birth), fechai(fechai), horario(horario) {
 
 }
-Forense(const Forense& otra):Persona(otra), fechai(otra.fechai), horario(otra.horario) {
+Forense::Forense(const Forense& otra):Persona(otra), fechai(otra.fechai), horario(otra.horario) {
 
 }
-virtual string toString()const{
+string Forense::toString()const{
 	stringstream ss;
 	ss << Persona::toString() << " Fecha de ingreso: " << fechai << " Horario: " << horario;
 	return ss.str();
 }
-string getFechai()const{
+string Forense::getFechai()const{
 	return fechai;
 }
-string getHorario()const{
+string Forense::getHorario()const{
 	return horario;
 }
-void setFechai(string fechai){
+void Forense::setFechai(string fechai){
 	this->fechai = fechai;
 }
-void setHorario(string horario){
+void Forense::setHorario(string horario){
 	this->horario = horario;
 }
