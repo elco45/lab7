@@ -15,6 +15,9 @@ Casos::Casos(int numero_caso, vector<Persona> investigadores, vector<Evidencias>
 	this->fecha=fecha;
 	this->estado=estado;
 }
+Casos::Casos(const Casos& other)
+	:numero_caso(other.numero_caso),inventigadores(other.investigadores), evidencia(other.evidencia),hora(other.hora),fecha(other.fecha)
+	,estado(other.estado){}
 
 const string Casos::toString()const{
 	stringstream ss;

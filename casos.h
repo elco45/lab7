@@ -17,7 +17,8 @@ class Casos{
   strign estado;
 public:
   Casos(int, vector<Investigador>,vector<Evidencias>,string,string,string);
-  const string toString()const;
+  Casos(const Casos&);
+  virtual string toString()const;
   const vector<Investigador> getInvestigadores()const;
   const Investigador getInvestigadores(int)const;
   const Evidencias getEvidencias(int)const;
