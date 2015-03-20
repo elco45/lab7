@@ -156,14 +156,73 @@ int main(int argc, char const *argv[]){
 				}
 
 			}else {
-				
+				c=case();
+				int numero, estado, noInv, noEv;
+				string hora, fecha, lugar;
+				std::vector<Persona> investigadores;
+				std::vector<Evidencias> evidencias;
+				if (c==1){
+					string culpable, victima;
+					std::vector<Persona> sospechosos;
+					int noSec;
+					cout << "Ingrese el numero de caso: ";
+					cin >> numero;
+					cout << " Ingrese el lugar de los hechos: ";
+					cin >> lugar;
+					cout << "Ingrese la hora del incidente: ";
+					cin >> hora;
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					cout << "Fue cerrado el estado? (0 es si, 1 es no): ";
+					cin >> estado;
+					cout << "Ingrese el nombre de la victima: ";
+					cin >> victima;
+					if (estado == 0)
+					{
+						cout << "Ingrese el nombre del culpable: ";
+						cin >> culpable;
+					}else if (estado == 1){
+						cout << "Ingrese el nombre del sospechoso principal: ";
+						cin >> culpable;
+					}
+					Homicidio h(numero, investigadores, evidencias, lugar, hora, fecha, estado, sospechosos, culpable, victima);
+					lc.push_back(h);
+				}else{
+					string nombre, motivo, cerrado;
+					int rescate;
+					double cantidad;
+					cout << "Ingrese el numero de caso: ";
+					cin >> numero;
+					cout << " Ingrese el lugar de los hechos: ";
+					cin >> lugar;
+					cout << "Ingrese la hora del incidente: ";
+					cin >> hora;
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					cout << "Fue cerrado el estado? (0 es si, 1 es no): ";
+					cin >> estado;
+					cout << "Ingrese el nombre de la victima: ";
+					cin >> victima;
+					cout << "Ingrese el motivo por el que fue secuestrado: ";
+					cin >> motivo;
+					cout << "Ingrese si pidio rescate (0 es si, 1 es no): ";
+					cin >> rescate;
+					if (rescate == 0)
+					{
+						cout << "Ingrese la cantidad que se pide: ";
+						cin >> cantidad;
+					}
+					
+				}
 			}
 		}else if(op==2){
 			
 		}else if(op==3){
 			c=view();
 			if (c==1){
-				
+				for (int i = 0; i < lp.size(); i++){
+					cout<<i+1<<lp.at(i)->toString();
+				}
 			}else if(c==2){
 
 			}else{

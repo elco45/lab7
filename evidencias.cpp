@@ -1,6 +1,7 @@
 #include "evidencias.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
 Evidencias::Evidencias(string nombre, string tipo,string lugar, string huellas,string procesada){
@@ -17,7 +18,12 @@ Evidencias::Evidencias(const Evidencias& other)
 
 string Evidencias::toString()const{
 	stringstream ss;
-	ss<<"Evidencia ("<<nombre<<", "<<tipo<<", "<<lugar<<", "<<huellas<<", "<<procesada<<")";
+	ss<<"Evidencia "<<endl
+		<<"Nombre: "nombre<<endl
+		<<"Tipo de objeto: "<<tipo<<endl
+		<<"Lugar: "<<lugar<<endl
+		<<"Huellas: "<<huellas<<endl
+		<<"Procesada: "<<procesada<<endl;
 	return ss.str();
 }
 
