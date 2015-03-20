@@ -4,11 +4,11 @@
 #include <sstream>
 using namespace std;
 
-Investigador::Investigador(int atendidos,int cerrados,int sinresolver){
+/*Investigador::Investigador(int atendidos,int cerrados,int sinresolver){
 	this->atendidos=atendidos;
 	this->cerrados=cerrados;
-	this->sinresolver=sinresolver
-}
+	this->sinresolver=sinresolver;
+}*/
 
 Investigador::Investigador(string name,string user,string password,int age,string id,string birth,int atendidos,int cerrados,int sinresolver)
 	:Persona(name,user,password,age,id,birth),atendidos(atendidos),cerrados(cerrados),sinresolver(sinresolver){
@@ -18,7 +18,7 @@ Investigador::Investigador(const Investigador& other)
 	:Persona(other),atendidos(other.atendidos),cerrados(other.cerrados),sinresolver(other.sinresolver){
 }
 
-string Investigador::toString(){
+string Investigador::toString()const{
 	stringstream ss;
 	ss<<"Investigador: "<<Persona::toString();
 	return ss.str();

@@ -1,6 +1,5 @@
-#ifndef CASOS_H
-#define CASOS_H
-#include "personas.h"
+#pragma once
+#include "persona.h"
 #include "evidencias.h"
 #include "investigador.h"
 #include <vector>
@@ -14,7 +13,7 @@ class Casos{
   vector<Evidencias>evidencia;
   string hora;
   string fecha;
-  strign estado;
+  string estado;
 public:
   Casos(int, vector<Investigador>,vector<Evidencias>,string,string,string);
   Casos(const Casos&);
@@ -33,5 +32,4 @@ public:
   void setHora(string);
   void setFecha(string);
   void setEstado(string);
-
-}
+};

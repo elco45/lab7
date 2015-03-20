@@ -54,7 +54,7 @@ void Evidencias::setLugar(string lugar){
 }
 
 void Evidencias::setHuellas(int huellas){
-	this-huellas=huellas;
+	this->huellas=huellas;
 }
 
 void Evidencias::setProcesada(int procesada){

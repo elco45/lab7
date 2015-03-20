@@ -1,13 +1,14 @@
 #include "casos.h"
+#include "evidencias.h"
+#include "persona.h"
+#include "investigador.h"
 #include <string>
 #include <sstream>
 #include <vector>
 
-using std::vector;
-using std::string;
-using std::stringstream;
+using namespace std;
 
-Casos::Casos(int numero_caso, vector<Persona> investigadores, vector<Evidencias> evidencia,string hora, string fecha, string estado){
+Casos::Casos(int numero_caso, vector<Investigador> investigadores, vector<Evidencias> evidencia,string hora, string fecha, string estado){
 	this->numero_caso=numero_caso;
 	this->investigadores=investigadores;
 	this->evidencia=evidencia;
@@ -16,10 +17,10 @@ Casos::Casos(int numero_caso, vector<Persona> investigadores, vector<Evidencias>
 	this->estado=estado;
 }
 Casos::Casos(const Casos& other)
-	:numero_caso(other.numero_caso),inventigadores(other.investigadores), evidencia(other.evidencia),hora(other.hora),fecha(other.fecha)
+	:numero_caso(other.numero_caso),investigadores(other.investigadores), evidencia(other.evidencia),hora(other.hora),fecha(other.fecha)
 	,estado(other.estado){}
 
-const string Casos::toString()const{
+string Casos::toString()const{
 	stringstream ss;
 	ss<<"Caso numero: "<<numero_caso<<" Fecha: "<<fecha<<" Hora: "<<hora<<" Estado: "<<estado<<endl<<"Investigadores"<<endl;
 	for(int i=0; i<investigadores.size(); i++){
@@ -29,7 +30,7 @@ const string Casos::toString()const{
 	for(int i=0; i<evidencia.size(); i++){
 		ss<<evidencia.at(i).toString()<<endl;
 	}
-
+	return ss.str();
 }
 const vector<Investigador> Casos::getInvestigadores()const{
   	return investigadores;

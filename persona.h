@@ -13,14 +13,14 @@ public:
 	string getName()const;
 	string getUser()const;
 	string getPassword()const;
+	string getID()const;
 	int getAge()const;
-	string getId()const;
 	string getBirth()const;
 	void setName(string);
 	void setUser(string);
 	void setPassword(string);
 	void setAge(int);
-	void setId(string);
+	void setID(string);
 	void setBirth(string);
 
 	/* data */

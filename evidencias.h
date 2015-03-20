@@ -6,7 +6,7 @@ using std::string;
 
 class Evidencias{
 	string nombre;
-	string objeto;
+	string tipo;
 	string lugar;
 	int huellas;
 	int procesada;
@@ -20,7 +20,7 @@ public:
 	int getHuellas()const;
 	int getProcesada()const;
 	void setNombre(string);
-	void setObjeto(string);
+	void setTipo(string);
 	void setLugar(string);
 	void setHuellas(int);
 	void setProcesada(int);

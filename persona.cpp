@@ -31,7 +31,7 @@ string Persona::getPassword()const{
 int Persona::getAge()const{
 	return age;
 }
-string Persona::getId()const{
+string Persona::getID()const{
 	return id;
 }
 string Persona::getBirth()const{
@@ -49,7 +49,7 @@ void Persona::setPassword(string password){
 void Persona::setAge(int age){
 	this->age = age;
 }
-void Persona::setId(string id){
+void Persona::setID(string id){
 	this->id = id;
 }
 void Persona::setBirth(string birth){
