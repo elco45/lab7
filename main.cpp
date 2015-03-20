@@ -13,10 +13,10 @@ using namespace std;
 int menu();
 int agregar();
 int person();
-int view();
+int case();
 
 int main(int argc, char const *argv[]){
-	int op,add,p;
+	int op,add,p,c;
 	string name,user,pass,birth,clave,puesto,fechai,horario,type,lugar,huellas,procesada;
 	int edad,id=0;
 	int atendidos,cerrados,sinresolver,tipo;
@@ -25,6 +25,7 @@ int main(int argc, char const *argv[]){
 	vector<Casos*> lc;
 	Persona* per;
 	Evidencias* ev;
+	Casos* ca;
 	do{
 		op=menu();
 		if (op==1){
@@ -154,7 +155,12 @@ int main(int argc, char const *argv[]){
 				}
 
 			}else {
+				c=case();
+				if (c==1){
+					
+				}else{
 
+				}
 			}
 		}else if(op==2){
 			
@@ -217,16 +223,14 @@ int person(){
 }
 
 
-int view(){
+int case(){
 	int op;
 	do{
-		cout<<"Visualizar"<<endl
-			<<"Que cargo tiene?"<<endl
-			<<"1. Personal Administrativo"<<endl
-			<<"2. Investigador"<<endl
-			<<"3. Forense"<<endl;
+		cout<<"Casos"<<endl
+			<<"1. Homicidio"<<endl
+			<<"2. Secuestro"<<endl;
 		cin>>op;
-		if (op>=1&&op<=3){
+		if (op>=1&&op<=2){
 			return op;
 		}else {
 			cout<<"Valor invalido!"<<endl;
