@@ -13,9 +13,9 @@ class Casos{
   vector<Evidencias>evidencia;
   string hora;
   string fecha;
-  string estado;
+  int estado;
 public:
-  Casos(int, vector<Investigador>,vector<Evidencias>,string,string,string);
+  Casos(int, vector<Investigador>,vector<Evidencias>,string,string,int);
   Casos(const Casos&);
   virtual string toString()const;
   const vector<Investigador> getInvestigadores()const;
@@ -23,7 +23,7 @@ public:
   const Evidencias getEvidencias(int)const;
   const string getHora()const;
   const string getFecha()const;
-  const string getEstado()const;
+  const int getEstado()const;
   const int getNumero_caso()const;
   void setInvestigadores(vector<Investigador>);
   void setInvestigadores(Investigador);
@@ -31,5 +31,5 @@ public:
   void setEvidencias(Evidencias);
   void setHora(string);
   void setFecha(string);
-  void setEstado(string);
+  void setEstado(int);
 };

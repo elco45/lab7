@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Casos::Casos(int numero_caso, vector<Investigador> investigadores, vector<Evidencias> evidencia,string hora, string fecha, string estado){
+Casos::Casos(int numero_caso, vector<Investigador> investigadores, vector<Evidencias> evidencia,string hora, string fecha, int estado){
 	this->numero_caso=numero_caso;
 	this->investigadores=investigadores;
 	this->evidencia=evidencia;
@@ -22,7 +22,7 @@ Casos::Casos(const Casos& other)
 
 string Casos::toString()const{
 	stringstream ss;
-	ss<<"Caso numero: "<<numero_caso<<" Fecha: "<<fecha<<" Hora: "<<hora<<" Estado: "<<estado<<endl<<"Investigadores"<<endl;
+	ss<<"Caso numero: "<<numero_caso<<" Fecha: "<<fecha<<" Hora: "<<hora<<" Estado: "<<estado<<endl<<"Investigadores: "<<endl;
 	for(int i=0; i<investigadores.size(); i++){
 		ss<<investigadores.at(i).toString()<<endl;
 	}
@@ -47,7 +47,7 @@ const string Casos::getHora()const{
 const string Casos::getFecha()const{
 	return fecha;
 }
-const string Casos::getEstado()const{
+const int Casos::getEstado()const{
 	return estado;
 }
 const int Casos::getNumero_caso()const{
@@ -71,6 +71,6 @@ void Casos::setHora(string hora){
 void Casos::setFecha(string fecha){
 	this->fecha=fecha;
 }
-void Casos::setEstado(string estado){
+void Casos::setEstado(int estado){
 	this->estado=estado;
 }
