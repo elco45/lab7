@@ -4,12 +4,6 @@
 #include <sstream>
 using namespace std;
 
-/*Investigador::Investigador(int atendidos,int cerrados,int sinresolver){
-	this->atendidos=atendidos;
-	this->cerrados=cerrados;
-	this->sinresolver=sinresolver;
-}*/
-
 Investigador::Investigador(string name,string user,string password,int age,int id,string birth,int atendidos,int cerrados,int sinresolver)
 	:Persona(name,user,password,age,id,birth),atendidos(atendidos),cerrados(cerrados),sinresolver(sinresolver){
 }
@@ -40,14 +34,14 @@ int Investigador::getSinresolver()const{
 	return sinresolver;
 }
 
-void Investigador::setAtendidos(int){
+void Investigador::setAtendidos(int atendidos){
 	this->atendidos=atendidos;
 }
 
-void Investigador::setCerrados(int){
+void Investigador::setCerrados(int cerrados){
 	this->cerrados=cerrados;
 }
 
-void Investigador::setSinresolver(int){
+void Investigador::setSinresolver(int sinresolver){
 	this->sinresolver=sinresolver;
 }
