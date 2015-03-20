@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
 /*Forense::Forense(string fechai, string horario):fechai(fechai), horario(horario) {
@@ -17,7 +18,10 @@ Forense::Forense(const Forense& otra):Persona(otra), fechai(otra.fechai), horari
 }
 string Forense::toString()const{
 	stringstream ss;
-	ss << Persona::toString() << " Fecha de ingreso: " << fechai << " Horario: " << horario;
+	ss << "Forense: "<<endl
+		<<Persona::toString() 
+		<<"Fecha de ingreso: " << fechai << endl
+		<<"Horario: " << horario<<endl;
 	return ss.str();
 }
 string Forense::getFechai()const{

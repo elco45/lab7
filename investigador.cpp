@@ -20,7 +20,11 @@ Investigador::Investigador(const Investigador& other)
 
 string Investigador::toString()const{
 	stringstream ss;
-	ss<<"Investigador: "<<Persona::toString();
+	ss<<"Investigador: "<<endl
+		<<Persona::toString()
+		<<"Casos Atendidos: "<<atendidos<<endl
+		<<"Casos Cerrados: "<<cerrados<<endl
+		<<"Casos sin resolver: "<<sinresolver<<endl;
 	return ss.str();
 }
 

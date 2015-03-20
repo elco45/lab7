@@ -13,7 +13,8 @@ using namespace std;
 int menu();
 int agregar();
 int person();
-int case();
+//int case();
+int view();
 
 int main(int argc, char const *argv[]){
 	int op,add,p,c;
@@ -155,17 +156,19 @@ int main(int argc, char const *argv[]){
 				}
 
 			}else {
-				c=case();
-				if (c==1){
-					
-				}else{
-
-				}
+				
 			}
 		}else if(op==2){
 			
 		}else if(op==3){
-			
+			c=view();
+			if (c==1){
+				
+			}else if(c==2){
+
+			}else{
+
+			}
 		}else{
 			break;
 		}
@@ -218,6 +221,21 @@ int person(){
 			return op;
 		}else{
 			cout<<"Valor invalido"<<endl;
+		}
+	}while(true);
+}
+int view(){
+	int op;
+	do{
+		cout<<"Visualizar"<<endl
+			<<"1. Personas"<<endl
+			<<"2. Evidencias"<<endl
+			<<"3. Casos"<<endl;
+		cin>>op;
+		if (op>=1&&op<=3){
+			return op;
+		}else{
+			cout<<"Valor invalido!"<<endl;
 		}
 	}while(true);
 }
