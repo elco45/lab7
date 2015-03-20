@@ -10,7 +10,7 @@ class Homicidio: public Casos{
 	string culpable;
 	string victima;
 public:
-	Homicidio(int, vector<Investigador>, vector<Evidencias>, string, string, int, vector<Persona>, string, string);
+	Homicidio(int, vector<Investigador>, vector<Evidencias>, string, string, string, int, vector<Persona>, string, string);
 	Homicidio(const Homicidio&);
 	virtual string toString()const;
 	string getCulpable()const;
