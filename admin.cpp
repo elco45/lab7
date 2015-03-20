@@ -3,8 +3,8 @@
 
 #include <string>
 #include <sstream>
-using std::string;
-using std::stringstream;
+#include <iostream>
+using namespace std;
 
 /*Admin::Admin(string clave, string puesto):clave(clave), puesto(puesto) {
 
@@ -19,7 +19,10 @@ Admin::Admin(const Admin& otra):Persona(otra), clave(otra.clave), puesto(otra.pu
 }
 string Admin::toString()const{
 	stringstream ss;
-	ss << Persona::toString() << " Clave: " << clave << " Puesto: " << puesto;
+	ss << "Admin: "<<endl
+		<<Persona::toString() 
+		<<"Clave: " << clave <<endl
+		<<"Puesto: " << puesto<<endl;
 	return ss.str();
 }
 string Admin::getClave()const{

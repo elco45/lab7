@@ -14,7 +14,12 @@ using namespace std;
 int menu();
 int agregar();
 int person();
+<<<<<<< HEAD
 int cas();
+=======
+//int case();
+int view();
+>>>>>>> 4590cd72c310a6ed313e002d74b21d2b79a1cbf9
 
 int main(int argc, char const *argv[]){
 	int op,add,p,c;
@@ -224,7 +229,16 @@ int main(int argc, char const *argv[]){
 		}else if(op==2){
 			
 		}else if(op==3){
-			
+			c=view();
+			if (c==1){
+				for (int i = 0; i < lp.size(); i++){
+					cout<<i+1<<lp.at(i)->toString();
+				}
+			}else if(c==2){
+
+			}else{
+
+			}
 		}else{
 			break;
 		}
@@ -277,6 +291,21 @@ int person(){
 			return op;
 		}else{
 			cout<<"Valor invalido"<<endl;
+		}
+	}while(true);
+}
+int view(){
+	int op;
+	do{
+		cout<<"Visualizar"<<endl
+			<<"1. Personas"<<endl
+			<<"2. Evidencias"<<endl
+			<<"3. Casos"<<endl;
+		cin>>op;
+		if (op>=1&&op<=3){
+			return op;
+		}else{
+			cout<<"Valor invalido!"<<endl;
 		}
 	}while(true);
 }

@@ -2,8 +2,8 @@
 
 #include <string>
 #include <sstream>
-using std::string;
-using std::stringstream;
+#include <iostream>
+using namespace std;
 
 Persona::Persona(string name, string user, string password, int age, int id, string birth)
 	:name(name), user(user), password(password), age(age), id(id), birth(birth) {
@@ -15,8 +15,12 @@ Persona::Persona(const Persona& otra)
 }
 string Persona::toString()const{
 	stringstream ss;
-	ss << "Nombre: " << name << " Usuario: " << user << " Contraseña: " << password 
-		<< " Edad: " << age << " # de Indentidad: " << id << " Fecha de Nacimiento: " << birth;
+	ss << "Nombre: " << name <<endl
+	 	<<"Usuario: " << user << endl
+	 	<<"Contraseña: " << password <<endl
+		<<"Edad: " << age << endl
+		<<"# de Indentidad: " << id << endl
+		<<"Fecha de Nacimiento: " << birth<<endl;
 	return ss.str();	
 }
 string Persona::getName()const{
