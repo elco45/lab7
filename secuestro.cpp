@@ -22,7 +22,7 @@ Secuestro::Secuestro(const Secuestro& secuestro):Casos(secuestro), nombre(secues
 }
 string Secuestro::toString()const{
 	stringstream ss;
-	ss << Casos::toString() << " Nombre de la víctima: " << nombre << " Motivo: " << motivo
+	ss << Casos::toString() << "Nombre de la víctima: " << nombre << endl << " Motivo: " << motivo << endl
 		<< " Pide rescate? ";
 	if(rescate == 0){
 		ss << "si " << " Cantidad: " << cantidad;

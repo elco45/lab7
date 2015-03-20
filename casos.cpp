@@ -25,11 +25,11 @@ Casos::Casos(const Casos& other)
 
 string Casos::toString()const{
 	stringstream ss;
-	ss<<"Caso numero: "<<numero_caso<<" Fecha: "<<fecha<<" Hora: "<<hora << " Lugar: " << lugar<<" Estado: "<<estado<<endl<<"Investigadores: "<<endl;
+	ss<<" Caso numero: "<<numero_caso<<endl<<" Fecha: "<<fecha<<endl<<" Hora: "<<hora<<endl << " Lugar: " << lugar<<endl<<" Estado: "<<estado<<endl<<"Investigadores: "<<endl;
 	for(int i=0; i<investigadores.size(); i++){
 		ss<<investigadores.at(i).toString()<<endl;
 	}
-	ss<<"Evidencias"<<endl;
+	ss<<"Evidencias: "<<endl;
 	for(int i=0; i<evidencia.size(); i++){
 		ss<<evidencia.at(i).toString()<<endl;
 	}

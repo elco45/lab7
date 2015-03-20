@@ -107,9 +107,6 @@ int main(int argc, char const *argv[]){
 				cout<<"ID: ";
 				cin>>id;
 				for (int i = 0; i < lp.size(); i++){
-					cout<<lp.at(i)->toString()<<endl;
-				}
-				for (int i = 0; i < lp.size(); i++){
 					if (lp.at(i)->getUser()==user&&lp.at(i)->getPassword()==pass&&lp.at(i)->getID()==id){
 						if (typeid(*lp.at(i))==typeid(Investigador)){
 							cout<<"Evidencias"<<endl	
@@ -150,11 +147,11 @@ int main(int argc, char const *argv[]){
 								procesada="No";
 							}
 							ev=new Evidencias(name,type,lugar,huellas,procesada);
+							le.push_back(ev);
+							break;
 						}else{
 							cout<<"Tiene que ser un investigador para poder crear evidencias"<<endl;
 						}
-					}else{
-						cout<<"Informacion invalida!"<<endl;
 					}
 				}
 
@@ -290,26 +287,26 @@ int main(int argc, char const *argv[]){
 						c=view();
 						if (c==1){
 							for (int j = 0; j < lp.size(); j++){
-								cout<<j+1<<lp.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<lp.at(j)->toString();
 							}
 						}else if(c==2){
 							for (int j = 0; j < le.size(); j++){
-								cout<<j+1<<le.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<le.at(j)->toString();
 							}
 						}else{
 							for (int j = 0; j < lc.size(); j++){
-								cout<<j+1<<lc.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<lc.at(j)->toString();
 							}
 						}
 					}else if (typeid(*lp.at(i))==typeid(Admin)){
 						c=view();
 						if (c==1){
 							for (int j = 0; j < lp.size(); j++){
-								cout<<j+1<<lp.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<lp.at(j)->toString();
 							}
 						}else if(c==2){
 							for (int j = 0; j < le.size(); j++){
-								cout<<j+1<<le.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<le.at(j)->toString();
 							}
 						}else{
 							cout<<"Secuestros"<<endl;
@@ -320,15 +317,15 @@ int main(int argc, char const *argv[]){
 								}
 							}
 						}
-					}else{
+					}else if(typeid(*lp.at(i))==typeid(Investigador)){
 						c=view();
 						if (c==1){
 							for (int j = 0; j < lp.size(); j++){
-								cout<<j+1<<lp.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<lp.at(j)->toString();
 							}
 						}else if(c==2){
 							for (int j = 0; j < le.size(); j++){
-								cout<<j+1<<le.at(j)->toString();
+								cout<<"#"<<j+1<<" "<<le.at(j)->toString();
 							}
 						}else{
 							cout<<"Homicidio"<<endl;
@@ -340,8 +337,6 @@ int main(int argc, char const *argv[]){
 							}
 						}
 					}
-				}else {
-					cout<<"Informacion invalida!"<<endl;
 				}
 			}
 		}else{
