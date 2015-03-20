@@ -25,5 +25,4 @@ public:
 	const string getFecha()const;
 	const int getEstado()const;
 	const int getNumero_caso()const;
-	const string getLugar()const;
 };

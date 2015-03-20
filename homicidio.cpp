@@ -11,8 +11,8 @@ using std::string;
 using std::stringstream;
 using std::vector;
 
-Homicidio::Homicidio(int numero_caso, vector<Investigador> investigadores, vector<Evidencias> evidencia, string lugar, string hora, string fecha, int estado,
-				vector<Persona> sospechosos,string culpable,string victima): Casos(numero_caso, investigadores, evidencia, hora, fecha, estado),
+Homicidio::Homicidio(int numero_caso, vector<Persona> investigadores, vector<Evidencias> evidencia, string lugar, string hora, string fecha, int estado,
+				vector<Persona> sospechosos,string culpable,string victima): Casos(numero_caso, investigadores, evidencia, lugar, hora, fecha, estado),
 				sospechosos(sospechosos), culpable(culpable), victima(victima){
 
 }

@@ -2,7 +2,8 @@
 #include "casos.h"
 #include "evidencias.h"
 #include "forense.h"
-//#include "homicidio.h"
+#include "homicidio.h"
+#include "secuestro.h"
 #include "investigador.h"
 #include "persona.h"
 #include <iostream>
@@ -13,7 +14,7 @@ using namespace std;
 int menu();
 int agregar();
 int person();
-int case();
+int cas();
 
 int main(int argc, char const *argv[]){
 	int op,add,p,c;
@@ -155,7 +156,7 @@ int main(int argc, char const *argv[]){
 				}
 
 			}else {
-				c=case();
+				c=cas();
 				int numero, estado, noInv, noEv;
 				string hora, fecha, lugar;
 				std::vector<Persona> investigadores;
@@ -184,12 +185,12 @@ int main(int argc, char const *argv[]){
 						cout << "Ingrese el nombre del sospechoso principal: ";
 						cin >> culpable;
 					}
-					Homicidio h(numero, investigadores, evidencias, lugar, hora, fecha, estado, sospechosos, culpable, victima);
-					lc.push_back(h);
+					ca = new Homicidio(numero, investigadores, evidencias, lugar, hora, fecha, estado, sospechosos, culpable, victima);
+					lc.push_back(ca);
 				}else{
-					string nombre, motivo, cerrado;
+					string nombre, motivo, cerrado = "";
 					int rescate;
-					double cantidad;
+					double cantidad = 0.0;
 					cout << "Ingrese el numero de caso: ";
 					cin >> numero;
 					cout << " Ingrese el lugar de los hechos: ";
@@ -201,7 +202,7 @@ int main(int argc, char const *argv[]){
 					cout << "Fue cerrado el estado? (0 es si, 1 es no): ";
 					cin >> estado;
 					cout << "Ingrese el nombre de la victima: ";
-					cin >> victima;
+					cin >> nombre;
 					cout << "Ingrese el motivo por el que fue secuestrado: ";
 					cin >> motivo;
 					cout << "Ingrese si pidio rescate (0 es si, 1 es no): ";
@@ -211,7 +212,13 @@ int main(int argc, char const *argv[]){
 						cout << "Ingrese la cantidad que se pide: ";
 						cin >> cantidad;
 					}
-					
+					if (estado == 0)
+					{
+						cout << "Ingrese el estado de la victima (vivo o muerto): ";
+						cin >> cerrado;
+					}
+					ca = new Secuestro(numero, investigadores, evidencias, lugar, hora, fecha, estado, nombre, motivo, cerrado, cantidad, rescate);
+					lc.push_back(ca);
 				}
 			}
 		}else if(op==2){
@@ -275,7 +282,7 @@ int person(){
 }
 
 
-int case(){
+int cas(){
 	int op;
 	do{
 		cout<<"Casos"<<endl

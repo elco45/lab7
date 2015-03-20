@@ -11,10 +11,10 @@ using std::string;
 using std::stringstream;
 using std::vector;
 
-Secuestro::Secuestro(int numero_caso, vector<Investigador> investigadores, vector<Evidencias> evidencia, string lugar, string hora, string fecha, int estado,
-					 string nombre, string motivo, string cerrado, int rescate)
+Secuestro::Secuestro(int numero_caso, vector<Persona> investigadores, vector<Evidencias> evidencia, string lugar, string hora, string fecha, int estado,
+					 string nombre, string motivo, string cerrado, double cantidad, int rescate)
 					:Casos(numero_caso, investigadores, evidencia, lugar, hora, fecha, estado), 
-					nombre(nombre), motivo(motivo), cerrado(cerrado), rescate(rescate), cantidad(0.0) {
+					nombre(nombre), motivo(motivo), cerrado(cerrado), rescate(rescate), cantidad(cantidad) {
 
 }
 Secuestro::Secuestro(const Secuestro& secuestro):Casos(secuestro), nombre(secuestro.nombre), motivo(secuestro.motivo),

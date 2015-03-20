@@ -53,6 +53,3 @@ const int Casos::getEstado()const{
 const int Casos::getNumero_caso()const{
 	return numero_caso;
 }
-const string getLugar()const{
-	return lugar
-}
