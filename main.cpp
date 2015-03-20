@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <typeinfo>
 using namespace std;
 int menu();
 int agregar();
@@ -16,11 +17,14 @@ int view();
 
 int main(int argc, char const *argv[]){
 	int op,add,p;
-	string name,user,pass,id,birth,clave,puesto,fechai,horario;
-	int edad,cont_id=0;
-	int atendidos,cerrados,sinresolver;
+	string name,user,pass,birth,clave,puesto,fechai,horario,type,lugar,huellas,procesada;
+	int edad,id=0;
+	int atendidos,cerrados,sinresolver,tipo;
 	vector<Persona*> lp;
+	vector<Evidencias*> le;
+	vector<Casos*> lc;
 	Persona* per;
+	Evidencias* ev;
 	do{
 		op=menu();
 		if (op==1){
@@ -39,14 +43,13 @@ int main(int argc, char const *argv[]){
 					cin>>edad;
 					cout<<"Fecha de nacimiento(dd/mm/yy): ";
 					cin>>birth;
-					id=cont_id+"";
 					cout<<"Clave: ";
 					cin>>clave;
 					cout<<"Puesto: ";
 					cin>>puesto;
 					per=new Admin(name,user,pass,edad,id,birth,clave,puesto);
-					cout<<"Su id es: "<<cont_id<<endl;
-					cont_id++;
+					cout<<"Su id es: "<<id<<endl;
+					id++;
 					lp.push_back(per);
 				}else if(p==2){
 					cout<<"Investigador"<<endl
@@ -60,7 +63,6 @@ int main(int argc, char const *argv[]){
 					cin>>edad;
 					cout<<"Fecha de nacimiento(dd/mm/yy): ";
 					cin>>birth;
-					id=cont_id+"";
 					cout<<"Casos Atendidos: ";
 					cin>>atendidos;
 					cout<<"Casos Cerrados: ";
@@ -68,8 +70,8 @@ int main(int argc, char const *argv[]){
 					cout<<"Casos Sin resolver: ";
 					cin>>sinresolver;
 					per=new Investigador(name,user,pass,edad,id,birth,atendidos,cerrados,sinresolver);
-					cout<<"Su id es: "<<cont_id<<endl;
-					cont_id++;
+					cout<<"Su id es: "<<id<<endl;
+					id++;
 					lp.push_back(per);
 				}else{
 					cout<<"Forense"<<endl
@@ -83,14 +85,13 @@ int main(int argc, char const *argv[]){
 					cin>>edad;
 					cout<<"Fecha de nacimiento(dd/mm/yy): ";
 					cin>>birth;
-					id=cont_id+"";
 					cout<<"Fecha ingreso: ";
 					cin>>fechai;
 					cout<<"Horario: ";
 					cin>>horario;
 					per=new Forense(name,user,pass,edad,id,birth,fechai,horario);
-					cout<<"Su id es: "<<cont_id<<endl;
-					cont_id++;
+					cout<<"Su id es: "<<id<<endl;
+					id++;
 					lp.push_back(per);
 				}
 			}else if(add==2){
@@ -101,10 +102,57 @@ int main(int argc, char const *argv[]){
 				cout<<"ID: ";
 				cin>>id;
 				for (int i = 0; i < lp.size(); i++){
+					cout<<lp.at(i)->toString()<<endl;
+				}
+				for (int i = 0; i < lp.size(); i++){
 					if (lp.at(i)->getUser()==user&&lp.at(i)->getPassword()==pass&&lp.at(i)->getID()==id){
-						
+						if (typeid(*lp.at(i))==typeid(Investigador)){
+							cout<<"Evidencias"<<endl	
+								<<"Nombre: ";
+							cin>>name;
+							cout<<"Tipo de objeto"<<endl
+								<<"1. Arma blanca"<<endl
+								<<"2. Arma de fuego"<<endl
+								<<"3. Evidencia circunstancial"<<endl;
+							cin>>tipo;
+							if (tipo==1){
+								type="Arma blanca";
+							}else if(tipo==2){
+								type="Arma de fuego";
+							}else if(tipo==3){
+								type="Evidencia circunstancial";
+							}else{
+								type="meow";
+							}
+							cout<<"Lugar: ";
+							cin>>lugar;
+							cout<<"Huellas"<<endl
+								<<"1. Si"<<endl
+								<<"2. No"<<endl;
+							cin>>p;
+							if (p==1){
+								huellas="Si";
+							}else{
+								huellas="No";
+							}
+							cout<<"Procesada"<<endl
+								<<"1. Si"<<endl
+								<<"2. No"<<endl;
+							cin>>p;
+							if (p==1){
+								procesada="Si";
+							}else {
+								procesada="No";
+							}
+							ev=new Evidencias(name,type,lugar,huellas,procesada);
+						}else{
+							cout<<"Tiene que ser un investigador para poder crear evidencias"<<endl;
+						}
+					}else{
+						cout<<"Informacion invalida!"<<endl;
 					}
 				}
+
 			}else {
 
 			}
@@ -112,8 +160,6 @@ int main(int argc, char const *argv[]){
 			
 		}else if(op==3){
 			
-		}else if(op==4){
-
 		}else{
 			break;
 		}
@@ -126,12 +172,11 @@ int menu(){
 	do{
 		cout<<"Menu"<<endl
 			<<"1. Agregar"<<endl
-			<<"2. Modificar"<<endl
-			<<"3. Eliminar"<<endl
-			<<"4. Visualizar"<<endl
-			<<"5. Salir"<<endl;
+			<<"2. Eliminar"<<endl
+			<<"3. Visualizar"<<endl
+			<<"4. Salir"<<endl;
 		cin>>op;
-		if (op>=1&&op<=5){
+		if (op>=1&&op<=4){
 			return op;
 		}else {
 			cout<<"Valor invalido!"<<endl;

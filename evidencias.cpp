@@ -3,7 +3,7 @@
 #include <sstream>
 using namespace std;
 
-Evidencias::Evidencias(string nombre, string tipo,string lugar, int huellas,int procesada){
+Evidencias::Evidencias(string nombre, string tipo,string lugar, string huellas,string procesada){
 	this->nombre=nombre;
 	this->tipo=tipo;
 	this->lugar=lugar;
@@ -33,11 +33,11 @@ string Evidencias::getLugar()const{
 	return lugar;
 }
 
-int Evidencias::getHuellas()const{
+string Evidencias::getHuellas()const{
 	return huellas;
 }
 
-int Evidencias::getProcesada()const{
+string Evidencias::getProcesada()const{
 	return procesada;
 }
 
@@ -53,10 +53,10 @@ void Evidencias::setLugar(string lugar){
 	this->lugar=lugar;
 }
 
-void Evidencias::setHuellas(int huellas){
+void Evidencias::setHuellas(string huellas){
 	this->huellas=huellas;
 }
 
-void Evidencias::setProcesada(int procesada){
+void Evidencias::setProcesada(string procesada){
 	this->procesada=procesada;
 }

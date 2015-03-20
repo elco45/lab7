@@ -10,7 +10,7 @@ using std::stringstream;
 
 }*/
 
-Admin::Admin(string name, string user, string password,int age, string id, string birth,  string clave, string puesto) 
+Admin::Admin(string name, string user, string password,int age, int id, string birth,  string clave, string puesto) 
 	:Persona(name, user, password, age, id, birth), clave(clave), puesto(puesto) {
 
 }
