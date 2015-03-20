@@ -10,7 +10,7 @@ using namespace std;
 	this->sinresolver=sinresolver;
 }*/
 
-Investigador::Investigador(string name,string user,string password,int age,string id,string birth,int atendidos,int cerrados,int sinresolver)
+Investigador::Investigador(string name,string user,string password,int age,int id,string birth,int atendidos,int cerrados,int sinresolver)
 	:Persona(name,user,password,age,id,birth),atendidos(atendidos),cerrados(cerrados),sinresolver(sinresolver){
 }
 

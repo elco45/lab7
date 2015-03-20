@@ -8,7 +8,7 @@ class Forense: public Persona{
 	string fechai, horario;
 public:
 	//Forense(string, string);
-	Forense(string, string, string, int, string, string, string, string);
+	Forense(string, string, string, int, int, string, string, string);
 	Forense(const Forense&);
 	virtual string toString()const;
 	string getFechai()const;

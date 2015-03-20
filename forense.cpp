@@ -8,7 +8,7 @@ using namespace std;
 /*Forense::Forense(string fechai, string horario):fechai(fechai), horario(horario) {
 
 }*/
-Forense::Forense(string name, string user, string password, int age, string id, string birth, string fechai, string horario)
+Forense::Forense(string name, string user, string password, int age, int id, string birth, string fechai, string horario)
 	:Persona(name, user, password, age, id, birth), fechai(fechai), horario(horario) {
 
 }

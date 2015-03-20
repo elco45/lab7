@@ -8,22 +8,22 @@ class Evidencias{
 	string nombre;
 	string tipo;
 	string lugar;
-	int huellas;
-	int procesada;
+	string huellas;
+	string procesada;
 public:
-	Evidencias(string,string,string,int,int);
+	Evidencias(string,string,string,string,string);
 	Evidencias(const Evidencias&);
 	string toString()const;
 	string getNombre()const;
 	string getTipo()const;
 	string getLugar()const;
-	int getHuellas()const;
-	int getProcesada()const;
+	string getHuellas()const;
+	string getProcesada()const;
 	void setNombre(string);
 	void setTipo(string);
 	void setLugar(string);
-	void setHuellas(int);
-	void setProcesada(int);
+	void setHuellas(string);
+	void setProcesada(string);
 };
 
 #endif

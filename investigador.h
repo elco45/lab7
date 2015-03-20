@@ -10,7 +10,7 @@ class Investigador: public Persona{
 	int sinresolver;
 public:
 	//Investigador(int,int,int);
-	Investigador(string,string,string,int,string,string,int,int,int);
+	Investigador(string,string,string,int,int,string,int,int,int);
 	Investigador(const Investigador&);
 	virtual string toString()const;
 	int getAtendidos()const;

@@ -5,7 +5,7 @@
 using std::string;
 using std::stringstream;
 
-Persona::Persona(string name, string user, string password, int age, string id, string birth)
+Persona::Persona(string name, string user, string password, int age, int id, string birth)
 	:name(name), user(user), password(password), age(age), id(id), birth(birth) {
 
 }
@@ -31,7 +31,7 @@ string Persona::getPassword()const{
 int Persona::getAge()const{
 	return age;
 }
-string Persona::getID()const{
+int Persona::getID()const{
 	return id;
 }
 string Persona::getBirth()const{
@@ -49,7 +49,7 @@ void Persona::setPassword(string password){
 void Persona::setAge(int age){
 	this->age = age;
 }
-void Persona::setID(string id){
+void Persona::setID(int id){
 	this->id = id;
 }
 void Persona::setBirth(string birth){
