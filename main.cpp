@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]){
 	int op,add,p,c;
 	string name,user,pass,birth,clave,puesto,fechai,horario,type,lugar,huellas,procesada;
 	int edad,id=0;
-	int atendidos,cerrados,sinresolver,tipo;
+	int atendidos,cerrados,sinresolver,tipo,cont=0;
 	vector<Persona*> lp;
 	vector<Evidencias*> le;
 	vector<Casos*> lc;
@@ -225,17 +225,124 @@ int main(int argc, char const *argv[]){
 				}
 			}
 		}else if(op==2){
-			
-		}else if(op==3){
-			c=view();
-			if (c==1){
-				for (int i = 0; i < lp.size(); i++){
-					cout<<i+1<<lp.at(i)->toString();
+			cout<<"Opciones de eliminacion\n1. Persona\n2. Casos\n3. Evidencias"<<endl;
+			cin>>p;
+			while(p!=1&&p!=2&&p!=3){
+				cout<<"Ingrese una opcion valida"<<endl;
+				cin>>p;
+			}
+			if(p==1){
+				for(int i=0; i<lp.size(); i++){
+					cout<<"Persona #"<<i<<endl;
+					cout<<lp.at(i)->toString()<<endl;
 				}
-			}else if(c==2){
+				cout<<"Seleccione a la persona que desea eliminar"<<endl;
+				cin>>c;
+				while(c<0&&c>lp.size()-1){
+					cout<<"Ingrese una opcion valida"<<endl;
+					cin>>c;
+				}
+				lp.erase(lp.begin()+c);
+				cout<<"Personaje elimnado de la lista exitosamente...supuestamente"<<endl;
 
-			}else{
 
+			}
+			if(p==2){
+				for(int i=0; i<lc.size(); i++){
+					cout<<"Casos #"<<i<<endl;
+					cout<<le.at(i)->toString()<<endl;
+				}
+				cout<<"Seleccione el caso que desea eliminar"<<endl;
+				cin>>c;
+				while(c<0&&c>lc.size()-1){
+					cout<<"Ingrese una opcion valida"<<endl;
+					cin>>c;
+				}
+				lc.erase(lc.begin()+c);
+				cout<<"Caso elimnado de la lista exitosamente...supuestamente"<<endl;
+			}
+			if(p==3){
+				for(int i=0; i<le.size(); i++){
+					cout<<"Evidencia # "<<i<<endl;
+					cout<<le.at(i)->toString()<<endl;
+					
+				}
+				cout<<"Seleccione la evidencia que desea eliminar"<<endl;
+				cin>>c;
+				while(c<0&&c>le.size()-1){
+					cout<<"Ingrese una opcion valida"<<endl;
+					cin>>c;
+				}
+				le.erase(le.begin()+c);
+				cout<<"Evidencia elimnada de la lista exitosamente...supuestamente"<<endl;
+			}
+		}else if(op==3){
+			cont=0;
+			cout<<"User: ";
+			cin>>user;
+			cout<<"Password: ";
+			cin>>pass;
+			cout<<"ID: ";
+			cin>>id;
+			for (int i = 0; i < lp.size(); i++){
+				if (lp.at(i)->getUser()==user&&lp.at(i)->getPassword()==pass&&lp.at(i)->getID()==id){
+					if (typeid(*lp.at(i))==typeid(Investigador)){
+						c=view();
+						if (c==1){
+							for (int j = 0; j < lp.size(); j++){
+								cout<<j+1<<lp.at(j)->toString();
+							}
+						}else if(c==2){
+							for (int j = 0; j < le.size(); j++){
+								cout<<j+1<<le.at(j)->toString();
+							}
+						}else{
+							for (int j = 0; j < lc.size(); j++){
+								cout<<j+1<<lc.at(j)->toString();
+							}
+						}
+					}else if (typeid(*lp.at(i))==typeid(Admin)){
+						c=view();
+						if (c==1){
+							for (int j = 0; j < lp.size(); j++){
+								cout<<j+1<<lp.at(j)->toString();
+							}
+						}else if(c==2){
+							for (int j = 0; j < le.size(); j++){
+								cout<<j+1<<le.at(j)->toString();
+							}
+						}else{
+							cout<<"Secuestros"<<endl;
+							for (int j = 0; j < lc.size(); j++){
+								if(typeid(*lc.at(j))==typeid(Secuestro)){
+									cont++;
+									cout<<cont<<lc.at(j)->toString();
+								}
+							}
+						}
+					}else{
+						c=view();
+						if (c==1){
+							for (int j = 0; j < lp.size(); j++){
+								cout<<j+1<<lp.at(j)->toString();
+							}
+						}else if(c==2){
+							for (int j = 0; j < le.size(); j++){
+								cout<<j+1<<le.at(j)->toString();
+							}
+						}else{
+							cout<<"Homicidio"<<endl;
+							for (int j = 0; j < lc.size(); j++){
+								if(typeid(*lc.at(j))==typeid(Homicidio)){
+									cont++;
+									cout<<cont<<lc.at(j)->toString();
+								}
+							}
+						}
+					}
+				}else {
+					cout<<"Informacion invalida!"<<endl;
+				}
 			}
 		}else{
 			break;
