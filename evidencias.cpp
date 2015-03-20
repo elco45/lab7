@@ -19,7 +19,7 @@ Evidencias::Evidencias(const Evidencias& other)
 string Evidencias::toString()const{
 	stringstream ss;
 	ss<<"Evidencia "<<endl
-		<<"Nombre: "nombre<<endl
+		<<"Nombre: "<<nombre<<endl
 		<<"Tipo de objeto: "<<tipo<<endl
 		<<"Lugar: "<<lugar<<endl
 		<<"Huellas: "<<huellas<<endl

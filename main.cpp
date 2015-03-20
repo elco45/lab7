@@ -14,12 +14,10 @@ using namespace std;
 int menu();
 int agregar();
 int person();
-<<<<<<< HEAD
 int cas();
-=======
 //int case();
 int view();
->>>>>>> 4590cd72c310a6ed313e002d74b21d2b79a1cbf9
+
 
 int main(int argc, char const *argv[]){
 	int op,add,p,c;
